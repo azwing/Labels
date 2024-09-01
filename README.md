@@ -12,4 +12,4 @@ Then it creates a pdf file with two colum labels.
 
 Have a look at label.png to see the result
 
-https://github.com/azwing/Labels/blob/main/Label.png
+![label](https://github.com/azwing/Labels/blob/main/Label.png)
