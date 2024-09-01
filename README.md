@@ -22,3 +22,6 @@ This Label shows:<br>
 "Perso" stands for personal production otherwise it would be the vendor name<br>
 "Gymnocalycium monvillei" is the plant name<br>
 "18/08/24" is the saw date <br>
+
+# dependencies
+sudo apt install imagemagick qrencode
