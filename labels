@@ -8,7 +8,7 @@
 # It then concatenates the labels in two rows of 20 labels
 # an finally converts all the pictures into an unique pdf file
 # Licensed under GPL V3
-# Copyright Alain Zwingelstein
+# Copyright 2024 Alain Zwingelstein
 #
 
 compte=0
@@ -17,8 +17,8 @@ Page=1
 lignes=19
 #Prempage=1
 
-# create an empty half page
-convert -size 449x1460 xc:white /dev/shm/empty.png
+# create an empty half page 449x1460 pixels
+convert -size 500x1460 xc:white /dev/shm/empty.png
 
 
 while IFS="," read Numero Ligne1 Ligne2 Ligne3; do
@@ -27,13 +27,13 @@ while IFS="," read Numero Ligne1 Ligne2 Ligne3; do
 
 	compte=$((compte + 1))
 
-	# create number part
-	convert -background white -fill black -font arial -pointsize 18 -rotate -90 -gravity center -size 69x22 caption:"$Numero" /dev/shm/tmp.png
-	convert -bordercolor black -border 1 /dev/shm/tmp.png /dev/shm/num.png
+	# create number part 69x22 pixels
+	convert -background white -fill black -font arial -pointsize 18 -rotate -90 -gravity center -size 69x25 caption:"$Numero" /dev/shm/tmp.png
+	convert -bordercolor white -border 1 /dev/shm/tmp.png /dev/shm/num.png
 
-	# create text part
-	convert -background white -fill black -font arial -pointsize 18 -size 352x69 -gravity west caption:"$Ligne1\n$Ligne2\n$Ligne3" /dev/shm/tmp.png
-	convert -bordercolor black -border 1 /dev/shm/tmp.png /dev/shm/texte.png
+	# create text part 352x69 pixels
+	convert -background white -fill black -font arial -pointsize 18 -size 400x69 -gravity west caption:"$Ligne1\n$Ligne2\n$Ligne3" /dev/shm/tmp.png
+	convert -bordercolor white -border 1 /dev/shm/tmp.png /dev/shm/texte.png
 
 	#convert +append /dev/shm/num.png /dev/shm/texte.png /dev/shm/tmp.png
 	# create QRCode part
@@ -94,4 +94,4 @@ then
 fi
 
 img2pdf --output sortie.pdf --pagesize A4 --border .5cm:.5cm /dev/shm/Page*
-rm /dev/shm/*.png
+#rm /dev/shm/*.png
