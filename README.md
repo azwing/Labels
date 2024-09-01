@@ -14,11 +14,11 @@ Example Label view
 
 ![label](https://github.com/azwing/Labels/blob/main/Label.png)
 
-This Label shows:
-"220" unique ID
-"073" Unique ID of the mother plant where seeds where collected
-"S57" is the saw ID number
-"Graines" Seeds in French
-"Perso" stands for personal production otherwise it would be the vendor name
-"Gymnocalycium monvillei" is the plant name
-"18/08/24" is the saw date 
+This Label shows:<br>
+"220" unique ID<br>
+"073" Unique ID of the mother plant where seeds where collected<br>
+"S57" is the saw ID number<br>
+"Graines" Seeds in French<br>
+"Perso" stands for personal production otherwise it would be the vendor name<br>
+"Gymnocalycium monvillei" is the plant name<br>
+"18/08/24" is the saw date <br>
