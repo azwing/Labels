@@ -10,6 +10,6 @@ Unique ID, Type / Order Nr / Vendor , Plant Name, Date / USDA Zone
 
 Then it creates a pdf file with two colum labels.
 
-Label view
+Example Label view
 
 ![label](https://github.com/azwing/Labels/blob/main/Label.png)
