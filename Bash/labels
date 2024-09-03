@@ -8,14 +8,13 @@
 # It then concatenates the labels in two rows of 20 labels
 # an finally converts all the pictures into an unique pdf file
 # Licensed under GPL V3
-# Copyright 2024 Alain Zwingelstein
+# Copyright Alain Zwingelstein
 #
 
 compte=0
 page=0
 Page=1
 lignes=19
-#Prempage=1
 
 # create an empty half page 449x1460 pixels
 convert -size 500x1460 xc:white /dev/shm/empty.png
@@ -55,6 +54,7 @@ while IFS="," read Numero Ligne1 Ligne2 Ligne3; do
 		mv /dev/shm/all.png /dev/shm/"page$page.png"
 		if (($page % 2 == 0))
 		then
+			convert /dev/shm/page$page.png -rotate -180 /dev/shm/page$page.png
 			convert +append /dev/shm/page$((page-1)).png /dev/shm/page$page.png /dev/shm/Page$Page.png
 			Page=$((Page+1))
 		fi
@@ -69,19 +69,19 @@ while IFS="," read Numero Ligne1 Ligne2 Ligne3; do
 
 done <$1
 
-echo "compte=$compte"
-echo "lignes=$lignes"
-echo "page=$page"
-echo "Page=$Page"
+#echo "compte=$compte"
+#echo "lignes=$lignes"
+#echo "page=$page"
+#echo "Page=$Page"
 # append the last page
 # most probably last page is not filled
 if (($compte > 0))
 
 then
-	echo "compte=$compte"
-	echo "lignes=$lignes"
-	echo "page=$page"
-	echo "Page=$Page"
+	#echo "compte=$compte"
+	#echo "lignes=$lignes"
+	#echo "page=$page"
+	#echo "Page=$Page"
 
 	page=$((page+1))
 	mv /dev/shm/all.png /dev/shm/"page$page.png"
@@ -94,4 +94,4 @@ then
 fi
 
 img2pdf --output sortie.pdf --pagesize A4 --border .5cm:.5cm /dev/shm/Page*
-#rm /dev/shm/*.png
+rm /dev/shm/*.png

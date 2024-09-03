@@ -117,6 +117,11 @@ if ($compte > $lignes) {
 	$commande="mv /dev/shm/all.png /dev/shm/page" . $page . ".png";
         $output = shell_exec($commande);
 	if (($page % 2) == 0) {
+		// invert the second half page so that labels are same shape
+		$commande="convert /dev/shm/page" . $page . ".png -rotate -180 /dev/shm/inv.png";
+		$output = shell_exec($commande);
+		$commande="mv /dev/shm/inv.png /dev/shm/page" . $page . ".png"; 
+		$output = shell_exec($commande);
 		$commande="convert +append /dev/shm/page" . $page-1 . ".png /dev/shm/page" . $page . ".png /dev/shm/Page" . $Page . ".png";
         	$output = shell_exec($commande);
 		$Page++;
@@ -124,11 +129,18 @@ if ($compte > $lignes) {
 	$compte=0;
 	}
 }
+// arrived at last page most probably the page is not entirely filled
 if ($compte > 0) {
 	$page++;
 	$commande="mv /dev/shm/all.png /dev/shm/page" . $page . ".png";
         $output = shell_exec($commande);
 	if ($page % 2 == 0) {
+		echo "invert the second half page" . $page ;
+                // invert the second half page so that labels are same shape
+                $commande="convert /dev/shm/page" . $page . ".png -rotate -180 /dev/shm/inv.png";
+                $output = shell_exec($commande);
+                $commande="mv /dev/shm/inv.png /dev/shm/page" . $page . ".png";
+		$output = shell_exec($commande);
 		$commande="convert +append /dev/shm/page" . $page-1 . ".png /dev/shm/page" . $page . ".png /dev/shm/Page" . $Page . ".png";
                 $output = shell_exec($commande);
 		} else {
@@ -136,13 +148,15 @@ if ($compte > 0) {
      	        $output = shell_exec($commande);
 		}
 	}
-$commande="img2pdf --output /dev/shm/sortie.pdf --pagesize A4 --border .5cm:.5cm /dev/shm/Page*";
+//$commande="img2pdf --output /dev/shm/sortie.pdf --pagesize A4 --border .5cm:.5cm /dev/shm/Page*";
+$commande="img2pdf --output /dev/shm/sortie.pdf --pagesize A4 /dev/shm/Page*";
 $output = shell_exec($commande);
 
-$commande="rm /dev/shm/*.png";
+//$commande="rm /dev/shm/*.png";
 $output = shell_exec($commande);
 echo "<br><br><b>Votre fichier est prêt : </b>";
-// todo edit the link below to point to your server
-echo "<a href='http://[yourserver]/etiqd.php'>Fichier étiquettes</a>";;
+echo "<a href='http://[2a01:e0a:2e1:d260:213d:c3ac:cb8:9214]/etiqd.php'>Fichier étiquettes</a>";;
+//$commande="rm /dev/shm/*";
+//$output = shell_exec($commande);
 
 ?>
