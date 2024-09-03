@@ -33,4 +33,11 @@ sudo apt install imagemagick qrencode
 Works under linux and makes usage of virtual filesystem for most of the poperations (/dev/shm/)
 Under php there is code that can be installed on an Apache server with php.
 
-Only point to edit is the [yourserver] URL at bottom od etiq.php near
+Only point to edit is the [yourserver] URL at bottom of etiq.php
+
+Copy all the php code under /var/www/html (or other directory id you wish provided apache can see it)
+then using your browser enter ther following url
+
+http://yourserver/etit.html
+
+were yourserver must point to your server url 
