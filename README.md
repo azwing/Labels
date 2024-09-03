@@ -38,6 +38,6 @@ Only point to edit is the [yourserver] URL at bottom of etiq.php
 Copy all the php code under /var/www/html (or other directory id you wish provided apache can see it)
 then using your browser enter ther following url
 
-http://yourserver/etit.html
+http://yourserver/etiq.html
 
 were yourserver must point to your server url 
