@@ -1,4 +1,7 @@
 # Labels
+
+# Bash script
+
 Bash script to create cacti labels with qrcode
 
 This script reads a comma separated file as example shown below:
@@ -25,3 +28,9 @@ This Label shows:<br>
 
 # dependencies
 sudo apt install imagemagick qrencode
+
+# Web interface
+Works under linux and makes usage of virtual filesystem for most of the poperations (/dev/shm/)
+Under php there is code that can be installed on an Apache server with php.
+
+Only point to edit is the [yourserver] URL at bottom od etiq.php near
