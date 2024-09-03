@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire d'envoi de liste pour étiquettes</title>
+</head>
+<body>
+    <form action="etiq.php" method="post" enctype="multipart/form-data">
+        <h2>Upload Fichier</h2>
+        <label for="fileUpload">Fichier:</label>
+        <input type="file" name="Liste" id="fileUpload">
+        <input type="submit" name="submit" value="Envoyer">
+        <p><strong>Note:</strong> Le fichier doit respecter le format suivant:</p>
+	<p><strong>extension:</strong> Le nom du fichier doit être sous la forme nomfichier.<b>csv</b></p>
+
+	<p>###-###,Première ligne,Deuxième ligne,Troisième ligne</p>
+	<p>sachant que ###-### va de 000-000 à 999-999</p>
+	<p>et que chaque ligne est limitée à <b>40 caratères</b></p>
+	<p>exemple</p>
+	<p>123-456,1234567890123456789012345678901234567890,Ligne 2,Ligne3</p>
+	<p>donnera l'étiquette suivante</p>
+    </form>
+	<img src="label.png" alt="Etiquette exemple" width="20%" >
+
+
+        <p>Le générateur renvoie un fichier pdf </p>
+        <p>où les étiquettes seront imprimées en planche </p>
+        <p>de 2 colonnes de 20 étiquettes</p>
+        <p>soit 40 étiquettes par page</p>
+	<p>----------------------------------------</p>
+        <p>2 ou 3 minutes pour 300 étiquettes</p>
+        <p>ça tourne sur un pauvre Raspberry Pi</p>
+
+
+</body>
+<footer>
+<a href="https://github.com/azwing/Labels">voir le code source ici</a>
+</footer>
+</html>
